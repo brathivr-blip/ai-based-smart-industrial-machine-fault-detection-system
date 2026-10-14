@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "mongoose": "^9.11.2",
+    "pymongo": "^0.0.1-security"
+  }
+}

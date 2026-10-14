@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0d0b" />
+    <meta name="description" content="Verify your email address with PredictX." />
+    <title>PredictX | Verify email</title>
+    <link rel="stylesheet" href="/register.css" />
+    <script src="/register.js" defer></script>
+  </head>
+  <body>
+    <main class="register-layout">
+      <a class="back-link" href="/login">← Back to PredictX</a>
+      <section class="register-card" aria-labelledby="page-title">
+        <div class="brand-mark" aria-hidden="true">⚙</div>
+        <p class="eyebrow">PREDICTX / SECURE ACCESS</p>
+        <h1 id="page-title">Verify your email.</h1>
+        <p class="subtitle">Confirm that you can receive email at this address.</p>
+
+        <form id="register-form" novalidate>
+          <label for="email">Email address</label>
+          <div class="email-row">
+            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" maxlength="254" required />
+            <button id="send-otp" class="button button-secondary" type="button">Send OTP</button>
+          </div>
+
+          <div id="otp-section" class="otp-section" hidden>
+            <label for="otp">Email verification code</label>
+            <input id="otp" name="otp" type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="6-digit code" autocomplete="one-time-code" />
+            <p id="otp-hint" class="hint">Check your inbox. The code expires in 5 minutes.</p>
+          </div>
+
+          <button id="register-submit" class="button button-primary" type="submit" disabled>
+            Verify email
+          </button>
+          <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+        <p class="privacy-note">This verifies your email only. No account or email address is stored. Verification codes expire after 5 minutes.</p>
+      </section>
+      <span class="page-caption">CARE BEFORE FAILURE · PREDICTX</span>
+    </main>
+  </body>
+</html>

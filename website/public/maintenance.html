@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Plan predictive maintenance from live machine sensor readings."
+    />
+    <meta name="theme-color" content="#0a0d0b" />
+    <title>PredictX | Maintenance Planner</title>
+    <link rel="stylesheet" href="/maintenance.css" />
+    <script src="/maintenance.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="PredictX home">
+          <span class="brand-mark" aria-hidden="true">⚙</span>
+          <span>
+            <strong>PredictX</strong>
+            <small>MAINTENANCE PLANNER</small>
+          </span>
+        </a>
+        <div class="top-actions">
+          <span id="connection" class="connection is-offline" role="status">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span id="connection-text">CONNECTING</span>
+          </span>
+          <button id="demo-button" class="button button-quiet" type="button">
+            Try sample data
+          </button>
+          <a class="button button-primary" href="/dashboard">Dashboard <span aria-hidden="true">↗</span></a>
+        </div>
+      </header>
+
+      <main>
+        <section class="intro">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> CARE BEFORE FAILURE</p>
+            <h1>Maintenance,<br /><span>without the guesswork.</span></h1>
+            <p class="intro-copy">
+              Turn machine signals into a practical service plan. Review live readings,
+              prioritize the next checks, and keep your maintenance list in one place.
+            </p>
+          </div>
+          <div class="intro-stamp" aria-label="Predictive maintenance">
+            <span class="stamp-orbit" aria-hidden="true">✳</span>
+            <span class="stamp-caption">PREDICT<br />PREVENT<br />PERFORM</span>
+          </div>
+        </section>
+
+        <section class="overview-grid" aria-label="Machine overview">
+          <article class="panel machine-panel">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">MACHINE OVERVIEW</p>
+                <h2>Equipment health</h2>
+              </div>
+              <span id="mode-badge" class="mode-badge">AWAITING DATA</span>
+            </div>
+            <div class="machine-display">
+              <div class="machine-orbit orbit-one" aria-hidden="true"></div>
+              <div class="machine-orbit orbit-two" aria-hidden="true"></div>
+              <div class="machine-core" aria-hidden="true"><span>⚙</span></div>
+              <div class="machine-data data-temperature">
+                <span class="data-label">TEMPERATURE</span>
+                <strong id="temperature-reading">--<small> °C</small></strong>
+              </div>
+              <div class="machine-data data-vibration">
+                <span class="data-label">VIBRATION</span>
+                <strong id="vibration-reading">--</strong>
+              </div>
+              <div class="machine-data data-current">
+                <span class="data-label">CURRENT</span>
+                <strong id="current-reading">--<small> A</small></strong>
+              </div>
+            </div>
+            <div class="health-row">
+              <div>
+                <span class="data-label">CONDITION SCORE</span>
+                <p id="health-caption">Waiting for the first sensor reading.</p>
+              </div>
+              <div class="health-meter" aria-label="Machine health score">
+                <strong id="health-score">--<small>%</small></strong>
+              </div>
+            </div>
+            <p id="last-updated" class="last-updated">Sensor feed has not connected yet.</p>
+          </article>
+
+          <article class="panel recommendations-panel">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">SMART SERVICE QUEUE</p>
+                <h2>What to check next</h2>
+              </div>
+              <span id="recommendation-count" class="count-badge">0</span>
+            </div>
+            <p id="recommendation-summary" class="panel-copy">
+              Recommendations appear when sensor data is available.
+            </p>
+            <div id="recommendation-list" class="recommendation-list" aria-live="polite"></div>
+          </article>
+        </section>
+
+        <section class="panel planner-panel">
+          <div class="planner-heading">
+            <div>
+              <p class="eyebrow">YOUR NEXT STEPS</p>
+              <h2>Maintenance plan</h2>
+              <p class="panel-copy">Your checklist is saved in this browser on this device.</p>
+            </div>
+            <div class="planner-actions">
+              <button id="print-button" class="button button-quiet" type="button">Print plan</button>
+              <button id="clear-button" class="button button-quiet" type="button">Clear completed</button>
+            </div>
+          </div>
+          <form id="task-form" class="task-form">
+            <label class="visually-hidden" for="task-input">Add a maintenance task</label>
+            <input
+              id="task-input"
+              type="text"
+              maxlength="120"
+              placeholder="Add a maintenance task…"
+              autocomplete="off"
+              required
+            />
+            <button class="button button-primary" type="submit">Add task <span aria-hidden="true">＋</span></button>
+          </form>
+          <div class="progress-row">
+            <span id="task-progress">0 of 0 complete</span>
+            <div class="progress-track" aria-hidden="true"><span id="progress-fill"></span></div>
+          </div>
+          <ul id="task-list" class="task-list"></ul>
+          <p id="empty-state" class="empty-state" hidden>
+            Your plan is clear. Add a task or use a smart recommendation above to get started.
+          </p>
+          <p id="storage-error" class="storage-error" role="alert" hidden>
+            Your browser couldn't save this plan. Tasks will be lost when you leave this page.
+          </p>
+        </section>
+      </main>
+
+      <footer>
+        <span>PREDICTX / EQUIPMENT CARE</span>
+        <span>Small checks today. Fewer surprises tomorrow.</span>
+      </footer>
+    </div>
+  </body>
+</html>
